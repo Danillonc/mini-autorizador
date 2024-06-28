@@ -1,5 +1,6 @@
 package com.mini.autorizador.domain.entity;
 
+import com.mini.autorizador.domain.repository.CreditCardRepository;
 import jakarta.persistence.*;
 
 /**
@@ -22,6 +23,7 @@ public class CreditCard {
     @Column(name = "Amount")
     private double amount;
 
+    public CreditCard(){}
 
     public CreditCard(String cardNumber, String cardPassword) {
         this.cardNumber = cardNumber;

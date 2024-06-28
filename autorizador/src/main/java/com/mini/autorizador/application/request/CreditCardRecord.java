@@ -1,7 +1,10 @@
 package com.mini.autorizador.application.request;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * Class resposible to receive data from users requests.
@@ -9,10 +12,13 @@ import jakarta.validation.constraints.NotNull;
  * @param senha - Senha do cartão de crédito.
  */
 public record CreditCardRecord (
-        @NotEmpty(message = "Numero do cartão não pode ser vazio.")
+        @NotBlank(message = "Numero do cartao não pode vazio.")
         @NotNull(message = "Numero do cartão deve ser preenchido.")
         String numeroCartao,
-        @NotEmpty(message = "Senha do cartão não pode ser vazio.")
+        @NotBlank(message = "Senha do cartao não pode vazio.")
         @NotNull(message = "Senha do cartão deve ser preenchido.")
-        String senha
+        @Size(min = 4, message = "Senha fora do tamanho minimo 4.")
+        String senha,
+        @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+        double saldo
 ) {}
