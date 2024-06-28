@@ -8,8 +8,6 @@ import com.mini.autorizador.domain.service.CreditCardService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
 /**
  * This class represents an implementation to our credit cass business layer.
  */
