@@ -7,3 +7,10 @@ Os serviços de cartão de crédito foram reutilizados e injetados no serviço d
 O banco de dados utilizado foi o MySQL.
 
 Para evitar o problema de requisições simultâneas e concorrentes, utilizamos o conceito de PESSIMIST LOCKING garantindo que uma transação aguarda até que a outra termine a operação de escrita.
+
+A aplicação está com autenticação BASIC e os parâmetros de autenticação são:
+username=username
+password=password
+
+O Aplicação também tem a documentação da camada de controller com Swagger.
+http://localhost:8080/swagger-ui/index.html#/
