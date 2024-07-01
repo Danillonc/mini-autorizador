@@ -3,6 +3,8 @@ package com.mini.autorizador.domain.entity;
 import com.mini.autorizador.domain.repository.CreditCardRepository;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 /**
  * This class represents the domain class level.
  */
@@ -21,14 +23,14 @@ public class CreditCard {
     private String cardPassword;
 
     @Column(name = "Amount")
-    private double amount;
+    private BigDecimal amount;
 
     public CreditCard(){}
 
     public CreditCard(String cardNumber, String cardPassword) {
         this.cardNumber = cardNumber;
         this.cardPassword = cardPassword;
-        this.amount = 500.00;
+        this.amount = BigDecimal.valueOf(500.00);
     }
 
     public long getId() {
@@ -55,11 +57,11 @@ public class CreditCard {
         this.cardPassword = cardPassword;
     }
 
-    public double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 }

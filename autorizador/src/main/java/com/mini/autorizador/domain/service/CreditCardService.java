@@ -11,4 +11,5 @@ public interface CreditCardService {
 
     CreditCard createCreditCard(CreditCard creditCard);
     CreditCard findByCreditCardNumber(String creditCardNumber);
+    CreditCard findByCreditCardNumberWithLock(String creditCardNumber);
 }

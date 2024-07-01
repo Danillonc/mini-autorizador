@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/v1")
 public class CreditCardController {
 
-    private transient CreditCardService creditCardService;
+    private final transient CreditCardService creditCardService;
 
     public CreditCardController(CreditCardService creditCardService){
         this.creditCardService = creditCardService;

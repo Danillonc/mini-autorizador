@@ -1,6 +1,8 @@
 package com.mini.autorizador.application.exceptionhandler;
 
 import com.mini.autorizador.domain.exception.CreditCardException;
+import com.mini.autorizador.domain.exception.CreditCardInvalidFundsException;
+import com.mini.autorizador.domain.exception.CreditCardInvalidPasswordException;
 import com.mini.autorizador.domain.exception.CreditCardNotExistsException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -47,6 +49,21 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 new ApiError(HttpStatus.NOT_FOUND, ex.getLocalizedMessage(), ex.getCause().getMessage());
         return new ResponseEntity<Object>(apiError, new HttpHeaders(), apiError.getStatus());
     }
+
+    @ExceptionHandler(CreditCardInvalidPasswordException.class)
+    public ResponseEntity<Object> handleCreditCardInvalidPasswordException(CreditCardInvalidPasswordException ex){
+        ApiError apiError =
+                new ApiError(HttpStatus.UNPROCESSABLE_ENTITY, ex.getLocalizedMessage(), ex.getCause().getMessage());
+        return new ResponseEntity<Object>(apiError, new HttpHeaders(), apiError.getStatus());
+    }
+
+    @ExceptionHandler(CreditCardInvalidFundsException.class)
+    public ResponseEntity<Object> handleCreditCardInvalidFundsException(CreditCardInvalidFundsException ex){
+        ApiError apiError =
+                new ApiError(HttpStatus.UNPROCESSABLE_ENTITY, ex.getLocalizedMessage(), ex.getCause().getMessage());
+        return new ResponseEntity<Object>(apiError, new HttpHeaders(), apiError.getStatus());
+    }
+
 
 
 }

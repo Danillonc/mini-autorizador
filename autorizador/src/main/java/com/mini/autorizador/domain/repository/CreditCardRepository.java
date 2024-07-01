@@ -15,6 +15,6 @@ public interface CreditCardRepository extends JpaRepository<CreditCard, Long> {
     Optional<CreditCard> findByCardNumber(String cardNumber);
 
     @Lock(LockModeType.PESSIMISTIC_WRITE)
-    @Query("SELECT c FROM CreditCard WHERE c.cardNumber = :cardNumber")
+    @Query("SELECT c FROM CreditCard c WHERE c.cardNumber = :cardNumber")
     Optional<CreditCard> findByCardNumberWithLock(String cardNumber);
 }

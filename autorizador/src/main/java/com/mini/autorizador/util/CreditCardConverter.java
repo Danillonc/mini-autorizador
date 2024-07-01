@@ -18,6 +18,6 @@ public class CreditCardConverter {
     }
 
     public static CreditCardRecord convertToDto(final CreditCard cardDomain) {
-        return  new CreditCardRecord(cardDomain.getCardNumber(), cardDomain.getCardPassword(), cardDomain.getAmount());
+        return  new CreditCardRecord(cardDomain.getCardNumber(), cardDomain.getCardPassword(), cardDomain.getAmount().doubleValue());
     }
 }
